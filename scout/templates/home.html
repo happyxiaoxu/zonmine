@@ -1,0 +1,336 @@
+{% extends 'base_frontend.html' %}
+{% block content %}
+{% load static %}
+<!-- <h1>AzonDrop Scout App: Ebay & Amazon</h1>
+        <a href="/dashboard/">Click to go to Dashboard</a> -->
+<div class="main-container">
+    <header class="fullscreen-element no-pad centered-text">
+        <div class="background-image-holder parallax-background overlay">
+            <img class="background-image" alt="Background Image" src="{% static 'img/hero8.jpg' %}">
+        </div>
+        <div class="container align-vertical">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="text-white"><b>The Most Sophisticated & Efficient</b></h1>
+                    <h3 class="text-white">eBay/Amazon Arbitrage Product Research Tool</h3>
+                    {% if user.is_authenticated %}
+                    <a href="/dashboard/" class="btn btn-primary btn-filled">Dashboard</a>
+                    {% else %}
+                    <div class="text-center">
+                        <a href="/pricing/" class="btn btn-primary btn-filled">Start Free Trial</a>
+                        <!-- <a href="#" class="btn btn-primary btn-filled" data-toggle="modal" data-target="#login-register"
+                            onclick="hideLoginForm(this)">Start Free Trial</a> -->
+                        <a href="#" class="btn btn-primary btn-filled video-btn" data-toggle="modal" 
+                        data-src="https://www.youtube.com/embed/WhQ22c7hJQk" data-target="#videoModal">Watch Demo</a>
+                        <br>
+                        <a href="#" class="btn" hidden></a>
+
+                    </div>
+                                <!-- <a type="button" class="button button-glow button-border button-rounded button-primary video-btn"
+                                    data-toggle="modal" data-src="https://www.youtube.com/embed/XTQC80n6_90" data-target="#videoModal">Watch
+                                    Video Tutorial</a> -->
+                    {% endif %}
+                    <!-- <h3 class="text-black">Arbitrage Product Research Made Easy</h3> -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="text-banner">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="icons-large">
+                        <li><i class="icon icon-desktop"></i></li>
+                        <li><i class="icon icon-magnifying-glass"></i></li>
+                        <li><i class="icon icon-clock"></i></li>
+                    </ul>
+                    <h1 class="center-block">Arbitrage Product Research Made Easy</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <p class="lead">
+                        Lootlister takes all the guesswork out of eBay/Amazon arbitrage product research by scouting
+                        your top competitors and uncovering their hottest selling products for you to list in your
+                        store. With this weapon you can ensure every product in your store has a high selling
+                        potential. Simply input the eBay seller ids you want to scout and let Lootlister do the rest!
+                        After grabbing the products you want, use one of our optimized listing templates and bulk list
+                        all of your items to eBay!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#" class="btn btn-primary">See Features</a>
+                    <a href="#" class="btn btn-primary btn-text-only">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="duplicatable-content milestones">
+			
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <h1>Multi Country Support</h1>
+                    <p class="lead">
+                        
+                    </p>	
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="feature feature-icon-large">
+                        <span class="flag-icon flag-icon-us"></span>
+                        <span style="margin-top: 0.5em">United States</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="feature feature-icon-large">
+                        <span class="flag-icon flag-icon-gb"></span>
+                        <span style="margin-top: 0.5em">United Kingdom</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="feature feature-icon-large">
+                        <span class="flag-icon flag-icon-ca"></span>
+                        <span style="margin-top: 0.5em">Canada</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="feature feature-icon-large">
+                        <span class="flag-icon flag-icon-de"></span>
+                        <span style="margin-top: 0.5em">Germany</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="feature feature-icon-large">
+                        <span class="flag-icon flag-icon-fr"></span>
+                        <span style="margin-top: 0.5em">France</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="feature feature-icon-large">
+                        <span class="flag-icon flag-icon-it"></span>
+                        <span style="margin-top: 0.5em">Italy</span>
+                    </div>
+                </div>
+                
+            
+
+            </div>
+        </div>
+    
+    </section>
+
+    <section class="duplicatable-content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Feature Rich to Make You Rich</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-documents"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>Bulk Seller Scout</h5>
+                            <p>
+                                Input a list of eBay seller competitors to scout and export all of the data at once so
+                                you can save time and find more profitable items! Check profits, reviews, Qty sold, and
+                                More!!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-genius"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>Multi-threaded & Proxy Supported</h5>
+                            <p>
+                                This baby is fast, sophisticated, and super powerful. With the use of hundreds of
+                                proxies and multi-threaded pixie dust… you get the results when you want them.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-tools-2"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>Title Builder Tool</h5>
+                            <p>
+                                Not a fan of building out high converting eBay titles for thousands of listings
+                                one-by-one? We aren’t either! That’s why we have the bulk title builder tool silly..
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-clipboard"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>Arbitrage Seller List</h5>
+                            <p>
+                                Don’t know where to start scouting for the juice? We have the lazy folks like you
+                                covered too! Use our arbitrage list of hundreds of sellers to get started fast!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-pencil"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>Loot Listing Tool</h5>
+                            <p>
+                                After you hone in on the money makers, the Loot Listing Tool is all you need to get
+                                your eBay Listings online. Pick a template…set a few listing options...and you are
+                                golden!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-search"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>Smart Filters</h5>
+                            <p>
+                                We pull in all kinds of nifty data you can use to filter and sort your results by.
+                                Profit, Amazon/eBay Reviews & Rev Score, Qty sold, weight, Prime?, Add-on? to name a
+                                few..
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-lock"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>VERO Validation</h5>
+                            <p>
+                                Protect your eBay account using our VERO validation checker to ensure you don’t
+                                accidentally list a brand in eBay’s VERO Program.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="feature feature-icon-large">
+                        <div class="pull-left">
+                            <i class="icon icon-mobile"></i>
+                        </div>
+                        <div class="pull-right">
+                            <h5>Responsive Listing Templates</h5>
+                            <p>
+                                Choose from our library of mobile responsive eBay listing templates in the Loot Listing
+                                tool to create stunning high converting listings for all of your new products!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="image-slider-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <h1>Time to Get the Loot!</h1>
+                    <div class="image-slider image-gallery">
+                        <ul class="slides">
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider1.jpg' %}"></li>
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider5.jpg' %}"></li>
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider8.jpg' %}"></li>
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider3.jpg' %}"></li>
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider4.jpg' %}"></li>
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider6.jpg' %}"></li>
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider2.jpg' %}"></li>
+                            <li><img alt="Image Slider Image" src="{% static 'img/slider7.jpg' %}"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center">
+                    <h1>We want your feedback</h1>
+                    <p class="lead">
+                        Got any suggestions for new features you would like to see? Hit us up! Also if you aren’t in
+                        the USA and want to help us beta test new countries drop us a line and we will get back with
+                        you.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                    <div class="form-wrapper clearfix">
+                        <form class="form-contact email-form" method="POST" action="/support/">
+                            {% csrf_token %}
+                            <div class="inputs-wrapper">
+                                <input class="form-name validate-required" type="text" placeholder="Your Name" name="name">
+                                <input class="form-email validate-required validate-email" type="text" name="email"
+                                    placeholder="Your Email Address">
+                                <textarea class="form-message validate-required" name="message" placeholder="Your Message"
+                                    maxlength="2000"></textarea>
+                            </div>
+                            <input type="submit" class="send-form" value="Send Form">
+                            <div class="form-success">
+                                <span class="text-white">Message sent - Thanks for your enquiry</span>
+                            </div>
+                            <div class="form-error">
+                                <span class="text-white">Please complete all fields correctly</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+
+{% endblock %}

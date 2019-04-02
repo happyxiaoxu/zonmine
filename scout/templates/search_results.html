@@ -1,0 +1,27 @@
+{% extends 'base_backend.html' %}
+{% block content %}
+    <div class="modal-body">
+        <h2 class="text-center">Keywords Search Results</h2>
+        <p style="color: red;">Only 100 latest results are shown here. Download file to view all results</p>
+        <table id="search-results-table" class="results table table-striped table-bordered table-responsive"
+               style="width:100%;">
+            <thead class="thead-dark">
+            <tr>
+                <th>Keywords</th>
+                <!-- <th>Amazon Url</th> -->
+            </tr>
+            </thead>
+            <tbody>
+            {% for foo in results %}
+                <tr>
+                    <td>
+                        {{ foo.keyword }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

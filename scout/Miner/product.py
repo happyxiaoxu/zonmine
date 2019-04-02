@@ -1,0 +1,57 @@
+# Class Product
+
+class Product(object):
+    def __init__(self):
+        self.url                                = ""
+        self.is_prime                           = False
+        self.is_addon                           = False
+        self.title                              = ""
+        self.asin                               = ""
+        self.price                              = ""
+        self.primary_image                      = ""
+        self.review_count                       = ""
+        self.review_score                       = ""
+        self.five_star_percentage               = "0%"
+        self.four_star_percentage               = "0%"
+        self.three_star_percentage              = "0%"
+        self.two_star_percentage                = "0%"
+        self.one_star_percentage                = "0%"
+        self.bread_crumbs                       = ""
+        self.feature_1                          = ""
+        self.feature_2                          = ""
+        self.feature_3                          = ""
+        self.feature_4                          = ""
+        self.feature_5                          = ""
+        self.brand                              = ""
+        self.image_1                            = ""
+        self.image_2                            = ""
+        self.image_3                            = ""
+        self.image_4                            = ""
+        self.image_5                            = ""
+        self.image_6                            = ""
+        self.image_7                            = ""
+        # self.image_8                          = ""
+        self.description                        = ""
+        # self.weight                           = ""
+        self.dimensions                         = ""
+        self.item_model_number                  = ""
+        self.item_weight                        = ""
+        self.item_dimensions_length             = ""
+        self.item_dimensions_width              = ""
+        self.item_dimensions_thickness          = ""
+        self.manufacturer                       = ""
+        self.sold_by                            = ""
+        self.in_stock                           = ""
+        self.is_sponsored                       = ""
+        self.is_fba                             = False
+        self.is_fbm                             = False
+        self.is_amz                             = False
+        self.search_keyword                     = ""
+        self.cpc                                = ""
+        self.monthly_search_volume              = ""
+        self.competition                        = ""
+        self.search_rank                        = ""
+        self.sellers_count                      = "1"
+        self.bsr                                = ""
+        self.bsr_category                       = ""
+        return None

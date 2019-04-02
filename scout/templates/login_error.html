@@ -1,0 +1,27 @@
+{% extends 'base_frontend.html' %}
+{% block content %}
+{% load static%}
+
+<style type="text/css">
+    .error-page .jumbo {
+        font-size: 10vw;
+        line-height: 10vw;
+    }
+</style>
+<div class="main-container">
+    <section class="no-pad error-page bg-primary fullscreen-element">
+        <div class="container align-vertical">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <!-- <i class="icon icon-happy"></i> -->
+                    <h1 class="jumbo">Unauthorized!!</h1>
+                    <h1><b>Login Required</b><br><br>Please, login with your email to access the dashboard.</h1>
+                    <a href="#" class="btn btn-primary btn-white" data-toggle="modal" data-target="#login-register"
+                        onclick="hideSignupForm(this)">Login</a>
+                    <a class="btn btn-primary btn-white btn-text-only" href="mailto:support@lootlister.com">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

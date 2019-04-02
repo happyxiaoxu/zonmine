@@ -1,0 +1,84 @@
+{% extends 'base_backend.html' %}
+{% block content %}
+<style>
+    .payment-button {
+        width: 300px !important;
+    }
+</style>
+<main>
+    <header>
+        <h1>Thank You! for signing up 😃</h1>
+    </header>
+    <section>
+        <div class="column">
+            <article>
+                <div class="alert notification" style="margin: auto; width: 95%">
+                    <dl>
+                        <dt class="text-center">
+                            <h2> <u> Complete Your Payment </u></h2>
+                        </dt>
+                        <dd>
+                            <h5>Before you can access the dashboard you need to complete the payment process.</h5>
+                        </dd>
+                        <dd>
+                            <h5>If you have already completed the payment process, please wait for a few minutes and
+                                refresh this page.</h5>
+                        </dd>
+                        <dd class="text-center">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="custom" value="{{user.username}}">
+                                <input type="hidden" name="lc" value="US">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="59HBEVCBFH464">
+                                <input style="display: none;" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif"
+                                    border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
+                                    height="1">
+                                <button class="button button-border button-rounded payment-button">$2/day : Cancel Anytime</button>
+                            </form>
+                        </dd>
+                        <dd class="text-center">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="custom" value="{{user.username}}">
+                                <input type="hidden" name="lc" value="US">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="7K528TTN76K5Y">
+                                <input style="display: none;" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif"
+                                    border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
+                                    height="1">
+                                <button class="button button-border button-rounded payment-button">$7/week : Min. 4 weeks</button>
+                            </form>
+                        </dd>
+                        <dd class="text-center">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="custom" value="{{user.username}}">
+                                <input type="hidden" name="lc" value="US">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="B6WAD9UAA6DEL">
+                                <input style="display: none;" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif"
+                                    border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
+                                    height="1">
+                                <button class="button button-border button-rounded payment-button">$10/week : Cancel Anytime</button>
+                            </form>
+                        </dd>
+                        <br>
+                        <h2 class="text-center">First day free on all packages</h2>
+                    </dl>
+                </div>
+            </article>
+
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <article class="help">
+            <span></span>
+            <p>If you have any questions, email us at <a href="mailto:support@lootlister.com">support@lootlister.com</a></p>
+        </article>
+    </footer>
+</main>
+{% endblock %}

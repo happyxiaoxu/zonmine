@@ -1,0 +1,62 @@
+{% extends 'base_backend.html' %}
+{% block content %}
+{% load scout_tags %}
+<div class="modal-body">
+    <h2 class="text-center">Scout Results</h2>
+    <p style="color: red;">Only 100 latest results are shown here. Download file to view all results</p>
+    <table id="scout-results-table" class="results table table-striped table-bordered table-responsive" style="width:100%">
+        <thead class="thead-dark">
+            <tr>
+                <th>Amazon Product Images</th>
+                <th>Amazon Title</th>
+                <th>Amazon Asin</th>
+                <th>Amazon Bread Crumbs</th>
+                <th>Amazon Features</th>
+                <th>Amazon Brand</th>
+                <th>Amazon Description</th>
+                <th>Amazon Weight</th>
+                <th>Amazon Dimensions</th>
+                <th>Amazon Item Model Number</th>
+                <th>Amazon Manufacturer</th>
+                <th>Amazon Sold By</th>
+                <th>Amazon In Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for foo in results %}
+            <tr>
+                <td>
+                    <a href="{{foo.primary_image}}" target="_blank">
+                        <img class="thumb64" src="{{foo.primary_image}}"></img>
+                    </a>
+                </td>
+                <td><a target="_blank" href="{{foo.prod_url}}">{{foo.title}}</a></td>
+                <td>{{foo.asin}}</td>
+                <td>{{foo.bread_crumbs}}</td>
+                <td>
+                    <ul>
+                        <li>{{foo.feature1}}</li>
+                        <li>{{foo.feature2}}</li>
+                        <li>{{foo.feature3}}</li>
+                        <li>{{foo.feature4}}</li>
+                        <li>{{foo.feature5}}</li>
+                    </ul>
+                </td>
+                <td>{{foo.brand}}</td>
+                <td>{{foo.description}}</td>
+                <td>{{foo.item_weight}}</td>
+                <td><p>Length:{{foo.item_dimensions_length}}</p>
+                    <p>Weight:{{foo.item_dimensions_weight}}</p>
+                    <p>Thickness:{{foo.item_dimensions_thickness}}</p></td>
+                <td>{{foo.item_model_number}}</td>
+                <td>{{foo.manufacturer}}</td>
+                <td>{{foo.sold_by}}</td>
+                <td>{{foo.in_stock}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

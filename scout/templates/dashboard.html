@@ -1,0 +1,260 @@
+{% extends 'base_backend.html' %}
+{% block content %}
+    <main>
+        {% csrf_token %}
+        <style>
+        </style>
+        <header style="background: #0e0e10de; color: white;">
+            <h1>Amazon FBA App</h1>
+            <h2>Amazon Arbitrage Product Research Tool</h2>
+        </header>
+        <section>
+            <div class="column">
+                <article>
+                    <div class="card highlight-card">
+                        <!-- <p>Test Element</p> -->
+                        <div class="alert notice">
+                            <dl>
+                                <dt>
+                                    <h3>Please Note</h3>
+                                </dt>
+                                <dd>
+                                    <h5>
+                                        Take the first keyword and put into amazon search bar and run through every
+                                        letter on keyboard. Grab
+                                        the autocomplete phrases and put into a list to download and export. Repeat for
+                                        other words in list to
+                                        create master list.
+                                    </h5>
+
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="text-center">
+                            <button type="button"
+                                    class="button button-glow button-border button-rounded button-primary video-btn"
+                                    data-toggle="modal" data-src="https://www.youtube.com/embed/XTQC80n6_90"
+                                    data-target="#videoModal">Watch
+                                Video Tutorial
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- <section>
+            <div class="column">
+                <article>
+                    <div class="card highlight-card">
+
+                        <h3>Download Requests</h3>
+                        <table class="results">
+                            <thead>
+                              <tr>
+                                <th>File</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Ebay Scout Results</td>
+                                <td><span class="tag green">Ready</span></td>
+                                <td>
+                                    <button class="button button-action button-large button-plain button-border button-circle"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Amazon ASIN Results</td>
+                                <td><span class="tag orange">Processing</span></td>
+                                <td>
+                                    <button class="button button-action button-large button-plain button-border button-circle"><i class="fas fa-download"></i></button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </article>
+            </div>
+        </section> -->
+
+        <section style="border: unset;">
+            <aside>
+                <h2>Keyword List Builder Tool</h2>
+                <p>Enter any word or phrase and click
+                    start to generate a keyword list. This
+                    will generate a keyword list to use
+                    with the Niche Miner tool.</p>
+            </aside>
+            <article>
+                <div class="card">
+                    <form class="keyword_search_form" action="/dashboard/" method="POST">
+                        {% csrf_token %}
+                        <h5>Enter Keyword or Keyword Phrases</h5>
+                        <!-- <i class="fab fa-accessible-icon"></i> -->
+                        <div class="alert success search" style="display: none;">
+                            <dl>
+                                <dt>Running</dt>
+                            </dl>
+                        </div>
+                        <div class="alert warning search" style="display: none;">
+                            <dl>
+                                <dt>Completed</dt>
+                            </dl>
+                        </div>
+                        <div class="badge badge-dark badge-results">
+                            Search Stats: <span class="badge badge-light" id="search-results-counter">0</span>
+                        </div>
+
+
+                        <p>Paste 1 keyword on each line</p>
+                        <div class="row" style="max-width: 100%; margin: 3% auto;">
+                            <textarea name="keywords" required="required" rows="10">{{ job.keywords }}</textarea>
+                        </div>
+                    </form>
+
+                    <div class="row" style="display: inline-block; max-width: 100%; margin: 3% auto;">
+                        <button data-attrib-action="start" data-attrib-name="search" id="start_search"
+                                class="button button-glow button-rounded button-action"
+                                onclick="searchBot(this)">Start
+                        </button>
+                        <button data-attrib-action="stop" data-attrib-name="search" id="stop_search"
+                                class="button button-glow button-rounded button-caution"
+                                onclick="searchBot(this)">Stop
+                        </button>
+                    </div>
+                    <div class="row" style="float: right; max-width: 100%; margin: 3% auto;">
+                        <!-- <button type="button" class="secondary" data-toggle="modal" data-target="#scout-results-modal">View Results</button> -->
+                        <button type="button" class="button button-border button-rounded button-primary"
+                                style="margin-right: 0.25em;"
+                                onclick="window.open('search/results/','_blank')">View
+                        </button>
+                        <!-- <button type="button" class="secondary" onclick="location.href='scout/download/'">Download Results</button> -->
+
+
+                        <form action="search/download/" method="POST" target="_blank">
+                            {% csrf_token %}
+                            <button class="button button-border button-rounded button-primary" data-attrib-name="search">
+                                Download
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section style="border: unset;">
+            <aside></aside>
+            <article>
+                <div class="card">
+                </div>
+            </article>
+        </section>
+
+        <section style="border: unset;">
+            <aside>
+                <h2>FBA Niche Miner Tool</h2>
+                <p>Enter your own keyword list or the list generated from the Keyword List Builder tool and click start
+                    to mine
+                    critical FBA sales data for each keyword!</p>
+            </aside>
+            <article>
+                <div class="card">
+                    <form class="scout_form" action="/dashboard/" method="POST">
+                        {% csrf_token %}
+                        <h5>Enter Keyword List</h5>
+                        <!-- <i class="fab fa-accessible-icon"></i> -->
+                        <div class="alert success scout" style="display: none;">
+                            <dl>
+                                <dt>Running</dt>
+                            </dl>
+                        </div>
+                        <div class="alert warning scout" style="display: none;">
+                            <dl>
+                                <dt>Completed</dt>
+                            </dl>
+                        </div>
+                        <div class="badge badge-dark badge-results">
+                            Search Stats: <span class="badge badge-light" id="scout-results-counter">0</span>
+                        </div>
+
+
+                        <p>Paste 1 keyword on each line</p>
+                        <div class="row" style="max-width: 100%; margin: 3% auto;">
+                            <textarea name="keylist" required="required" rows="10">{{ job.keylist }}</textarea>
+                        </div>
+                    </form>
+
+                    <div class="row" style="display: inline-block; max-width: 100%; margin: 3% auto;">
+                        <button data-attrib-action="start" data-attrib-name="scout" id="start_scout"
+                                class="button button-glow button-rounded button-action"
+                                onclick="scoutBot(this)">Start
+                        </button>
+                        <button data-attrib-action="stop" data-attrib-name="scout" id="stop_scout"
+                                class="button button-glow button-rounded button-caution"
+                                onclick="scoutBot(this)">Stop
+                        </button>
+                    </div>
+                    <div class="row" style="float: right; max-width: 100%; margin: 3% auto;">
+                        <!-- <button type="button" class="secondary" data-toggle="modal" data-target="#scout-results-modal">View Results</button> -->
+                        <button type="button" class="button button-border button-rounded button-primary"
+                                style="margin-right: 0.25em;"
+                                onclick="window.open('scout/results/','_blank')">View
+                        </button>
+                        <!-- <button type="button" class="secondary" onclick="location.href='scout/download/'">Download Results</button> -->
+
+
+                        <form action="scout/download/" method="POST" target="_blank">
+                            {% csrf_token %}
+                            <button class="button button-border button-rounded button-primary" data-attrib-name="scout">
+                                Download
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section style="border: unset;">
+            <aside></aside>
+            <article>
+                <div class="card">
+                </div>
+            </article>
+        </section>
+
+        <section style="border: unset;">
+            <aside>
+                <h2>Lootlister Scout Sheet</h2>
+                <p>Quickly assess all of your scouted data, add custom filters, and generate an eBay file exchange file
+                    you
+                    can upload to Ebay.</p>
+            </aside>
+            <article>
+                <div class="card">
+                    <form class="asin_codes_form" action="/dashboard/" method="POST">
+                        {% csrf_token %}
+                        <h5>Lootlister Scout Sheet</h5>
+                        <h5>To use you must sign up with a google account
+                            and then save your own copy in your google sheets account (File > Make a copy).</h5>
+                        <div class="text-center">
+                            <button type="button"
+                                    onclick="window.open('https://docs.google.com/spreadsheets/d/11ccxFkAMxxrBsMM7jrTk7t6iHXB_QOWasMLDKAzGM9w/','_blank')"
+                                    class="button button-glow button-border button-rounded button-primary">Open Sheet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </section>
+        <footer>
+            <!-- <article class="help">
+                        <span></span>
+                        <p>Learn more about <a href="#">%screen%</a> at the <a href="#">%company%</a> Help Center.</p>
+                    </article> -->
+        </footer>
+    </main>
+    <script>
+    </script>
+{% endblock %}

@@ -1,0 +1,181 @@
+{% extends "base_frontend.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .overlay-bar {
+    background: #2f2933;
+}
+.flag-icon {
+    font-size: 1.7em !important;
+    margin: 0 4%;
+}
+</style>
+<div class="main-container">
+    <section class="pricing-2">
+				
+        <div class="container">
+            <div class="row text-center">
+                <h1>Pricing Plans</h1>
+            </div>
+            
+            <div class="row pricing-tables">
+                    <table class="table table-borderless">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                
+            </div>
+        </div>
+    
+    </section>
+
+
+</div>
+<!-- <div class="main-container">
+    <section class="pricing-2">
+				
+        <div class="container">
+            <div class="row text-center">
+                <h1>Pricing Plans</h1>
+            </div>
+            
+            <div class="row pricing-tables">
+                <div class="col-md-3 no-pad-right hidden-sm">
+                    <div class="pricing-table feature-list">
+                        <ul class="features">
+                            <li>
+                                <strong>
+                                    <span class="flag-icon flag-icon-us"></span>
+                                    <span class="flag-icon flag-icon-gb"></span>
+                                    <span class="flag-icon flag-icon-ca"></span>
+                                </strong>
+                            </li>
+                            <li><strong>Unlimited Scout Runs/Day</strong></li>
+                            <li><strong>Bulk Loot Lister Tool with Responsive Listing Templates</strong></li>
+                            <li><strong>Title Builder Tool</strong></li>
+                            <li><strong>Arbitrage Seller List</strong></li>
+                            <li><strong>VERO validation</strong></li>
+                            <li><strong>Multi - Threaded / Proxy Supported</strong></li>
+                            <li><strong>USA, CA & Uk <br> ebay / Amazon Marketplaces</strong></li>
+                            <li><strong>Training & Support</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 no-pad hidden-sm">
+                    <div class="pricing-table">
+                        <ul class="features">
+                            <li><strong>Starter</strong></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><strong>Basic</strong></li>
+                        </ul>
+                        <div class="price">
+                            <span class="sub">$</span>
+                            <span class="amount">10</span>
+                            <span class="sub">/wk</span>
+                            <p class="lead"><strong>Cancel Anytime</strong></p>	
+                        </div>                        
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-primary pricing-button" href="/dashboard/" class="pricing-button">Dashboard</a>
+                        {% else %}
+                            <a href="#" class="btn btn-primary pricing-button" data-toggle="modal" data-target="#login-register" onclick="hideLoginForm(this)">Start Free Trial</a>
+                        {% endif %}                        
+                    </div>
+                </div>
+                
+                <div class="col-md-3 no-pad hidden-sm">
+                    <div class="pricing-table emphasis">
+                        <ul class="features">
+                            <li><strong>Business</strong></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><strong>Basic</strong></li>
+                        </ul>
+                        <div class="price">
+                            <span class="sub">$</span>
+                            <span class="amount">7</span>
+                            <span class="sub">/wk</span>	
+                            <p class="lead"><strong>8 Weeks Minimum Term</strong></p>	
+                        </div>
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-primary btn-white pricing-button" href="/dashboard/" class="pricing-button">Dashboard</a>
+                        {% else %}
+                            <a href="#" class="btn btn-primary btn-white pricing-button" data-toggle="modal" data-target="#login-register" onclick="hideLoginForm(this)">Start Free Trial</a>
+                        {% endif %}
+                    </div>
+                </div> 
+                
+                <div class="col-md-3 no-pad-left hidden-sm">
+                    <div class="pricing-table">
+                        <ul class="features">
+                            <li><strong>Business</strong></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><i class="fas fa-check"></i></li>
+                            <li><strong>Basic</strong></li>
+                        </ul>
+                        <div class="price">
+                            <span class="sub">$</span>
+                            <span class="amount">28</span>
+                            <span class="sub">/mo</span>
+                            <p class="lead"><strong>Cancel Anytime</strong></p>	
+                        </div>
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-primary pricing-button" href="/dashboard/" class="pricing-button">Dashboard</a>
+                        {% else %}
+                            <a href="#" class="btn btn-primary pricing-button" data-toggle="modal" data-target="#login-register" onclick="hideLoginForm(this)">Start Free Trial</a>
+                        {% endif %}   
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+    </section>
+
+
+</div> -->
+<!-- {% include "order-info.html" %} -->
+{% endblock %}
+

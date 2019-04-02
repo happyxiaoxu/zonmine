@@ -1,0 +1,85 @@
+{% extends 'base_backend.html' %}
+{% block content %}
+<main>
+    {% csrf_token %}
+    <style>
+    </style>
+    <header style="background: #0e0e10de; color: white;">
+        <h1>Amazon FBA App</h1>
+        <h2>Amazon Arbitrage Product Research Tool</h2>
+    </header>
+    <section>
+        <div class="column">
+            <article>
+                <div class="card highlight-card">
+                    <!-- <p>Test Element</p> -->
+                    <div class="alert success">
+                        <dl>
+                            <dt>
+                                <h3>Download request submitted successfully</h3>
+                            </dt>
+                            <dd>
+                                <h5>
+                                    Your file will be downloaded automatically when its ready. It might take upto 5
+                                    minutes to process and prepare the file.
+                                </h5>
+                                <h5>
+                                    This page will automatically refresh every 30s and download the file when it is
+                                    ready.
+                                </h5>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="text-center">
+                        <div class="badge badge-info" id="download-result" style="font-size: 1.7em;">
+                            Refreshing in: <span class="badge badge-light" id="refresh-timer">10</span>
+                        </div>
+                    </div>
+                    <input type="hidden" value="{{bot_name}}" id="bot_name">
+                    <div class="text-center" style="margin-top: 2em;">
+                        <button hidden="hidden" id="download-again" onclick="openDownloadUrl()" class="button button-border button-rounded button-primary"
+                            data-attrib-name="asin">Download Again</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+<script>
+    function openDownloadUrl() {
+        url = "/dashboard/" + document.getElementById("bot_name").value + "/download/"
+        jQuery.ajax({
+            type: "GET",
+            url: url,
+            {% comment %}data:{
+                csrfmiddlewaretoken:$('input[name="csrfmiddlewaretoken"]').val()
+            },{% endcomment %}
+            success: function (data) {  
+                if (data.length !== 0){
+                    location.href=url
+                    document.getElementById("download-again").hidden = false;
+                    document.getElementById("download-result").innerHTML = "File Download Complete!"
+                }else{
+                    location.reload();
+                }
+            },
+            error: function (errorObject, errorText, errorHTTP) {
+                console.log("File could not be loaded")
+            }
+        });
+    }
+
+    function countdown() {
+        var current = parseInt(document.getElementById("refresh-timer").innerHTML);
+        document.getElementById("refresh-timer").innerHTML = current - 1;
+
+        if (current > 1) {
+            setTimeout(countdown, 1000); // run every second
+        } else {
+            openDownloadUrl();
+            // window.close();
+        }
+    }
+    countdown()
+</script>
+{% endblock %}
