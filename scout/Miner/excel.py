@@ -1,9 +1,5 @@
 from openpyxl import Workbook
-from openpyxl.styles import Alignment, Color, Font, PatternFill
-
-from scout.Miner.product import Product
-
-import io
+from openpyxl.styles import Alignment, Font
 
 font = Font(
                 name='Calibri',
@@ -16,11 +12,9 @@ font = Font(
                 color='000000'
             )
 
-
 # test = PatternFill(patternType='solid',
 #                                         fill_type='solid', 
 #                                         fgColor=Color('C4C4C4'))
-
 
 search_column_headers = ['keyword']
 scout_column_headers = [

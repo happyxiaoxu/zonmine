@@ -1,10 +1,8 @@
 # Grepwords Api to get keyword data from google 
 
-import requests
-import json
 import pprint
+import requests
 from scout.Miner.config import Config
-
 
 class KeywordsApi(object):
     def __init__(self):

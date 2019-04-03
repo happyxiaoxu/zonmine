@@ -5,7 +5,7 @@ import pprint
 import concurrent.futures
 
 class BotScout(object):
-    def __init__(self,job, as_obj, db_handler):
+    def __init__(self, job, as_obj, db_handler):
         self.as_obj = as_obj
         self.db_handler = db_handler
         self.job = job
@@ -15,7 +15,7 @@ class BotScout(object):
         return None
 
     def search(self, keyword, tries=0):
-        results = self.as_obj.keyword_search(keyword,self.job,self.db_handler)
+        results = self.as_obj.keyword_search(keyword, self.job, self.db_handler)
         if not results:
             if tries < 10:
                 tries += 1
