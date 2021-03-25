@@ -106,7 +106,7 @@ python-http-client==3.1.0
 python-mimeparse==1.6.0
 pytz==2018.5
 pywin32==223
-PyYAML==3.13
+PyYAML==5.4
 random-useragent==1.0
 ratelim==0.1.6
 redis==3.2.1
