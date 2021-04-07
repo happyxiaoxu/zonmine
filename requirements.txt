@@ -7,7 +7,7 @@ Automat==0.7.0
 autopep8==1.4
 backcall==0.1.0
 beautifulsoup4==4.6.3
-bottle==0.12.16
+bottle==0.12.19
 bottlenose==1.1.8
 cairocffi==0.9.0
 CairoSVG==2.2.1
