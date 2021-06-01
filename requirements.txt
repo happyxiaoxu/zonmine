@@ -133,7 +133,7 @@ typing==3.6.6
 tzlocal==1.5.1
 unpy2exe==0.4
 uritemplate==3.0.0
-urllib3==1.23
+urllib3==1.26.5
 utils==0.9.0
 virtualenv==16.0.0
 virtualenv-clone==0.3.0
