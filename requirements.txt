@@ -54,7 +54,7 @@ idna==2.7
 imageio==2.1.2
 incremental==17.5.0
 InstagramAPI==1.0.2
-ipython==7.1.1
+ipython==7.16.3
 ipython-genutils==0.2.0
 itypes==1.1.0
 jdcal==1.4
