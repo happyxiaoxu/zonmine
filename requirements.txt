@@ -94,7 +94,7 @@ Pygments==2.2.0
 PyHamcrest==1.9.0
 PyInstaller==3.3.1
 pyjsparser==2.5.2
-PyJWT==1.6.4
+PyJWT==2.4.0
 pyOpenSSL==18.0.0
 pyparsing==2.3.0
 Pyphen==0.9.5
